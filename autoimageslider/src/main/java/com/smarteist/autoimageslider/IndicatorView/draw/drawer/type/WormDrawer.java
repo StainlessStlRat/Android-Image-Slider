@@ -13,8 +13,10 @@ public class WormDrawer extends BaseDrawer {
 
     public RectF rect;
 
-    public WormDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public WormDrawer(@NonNull Paint paint,
+                      @NonNull Indicator indicator,
+                      @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
         rect = new RectF();
     }
 
@@ -50,7 +52,7 @@ public class WormDrawer extends BaseDrawer {
         }
 
         paint.setColor(unselectedColor);
-        canvas.drawCircle(coordinateX, coordinateY, radius, paint);
+        shapeDrawer.draw(coordinateX, coordinateY, radius, canvas, paint);
 
         paint.setColor(selectedColor);
         canvas.drawRoundRect(rect, radius, radius, paint);

@@ -11,8 +11,10 @@ public class FillDrawer extends BaseDrawer {
 
     private Paint strokePaint;
 
-    public FillDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public FillDrawer(@NonNull Paint paint,
+                      @NonNull Indicator indicator,
+                      @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
 
         strokePaint = new Paint();
         strokePaint.setStyle(Paint.Style.STROKE);
@@ -66,9 +68,9 @@ public class FillDrawer extends BaseDrawer {
 
         strokePaint.setColor(color);
         strokePaint.setStrokeWidth(indicator.getStroke());
-        canvas.drawCircle(coordinateX, coordinateY, indicator.getRadius(), strokePaint);
+        shapeDrawer.draw(coordinateX, coordinateY, indicator.getRadius(), canvas, strokePaint);
 
         strokePaint.setStrokeWidth(stroke);
-        canvas.drawCircle(coordinateX, coordinateY, radius, strokePaint);
+        shapeDrawer.draw(coordinateX, coordinateY, radius, canvas, strokePaint);
     }
 }

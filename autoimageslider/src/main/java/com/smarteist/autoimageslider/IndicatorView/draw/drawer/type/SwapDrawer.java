@@ -10,8 +10,10 @@ import com.smarteist.autoimageslider.IndicatorView.draw.data.Orientation;
 
 public class SwapDrawer extends BaseDrawer {
 
-    public SwapDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public SwapDrawer(@NonNull Paint paint,
+                      @NonNull Indicator indicator,
+                      @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
     }
 
     public void draw(
@@ -60,9 +62,9 @@ public class SwapDrawer extends BaseDrawer {
 
         paint.setColor(color);
         if (indicator.getOrientation() == Orientation.HORIZONTAL) {
-            canvas.drawCircle(coordinate, coordinateY, radius, paint);
+            shapeDrawer.draw(coordinate, coordinateY, radius, canvas, paint);
         } else {
-            canvas.drawCircle(coordinateX, coordinate, radius, paint);
+            shapeDrawer.draw(coordinateX, coordinate, radius, canvas, paint);
         }
     }
 }

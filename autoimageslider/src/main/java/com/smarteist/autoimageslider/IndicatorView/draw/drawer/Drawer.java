@@ -9,16 +9,16 @@ import com.smarteist.autoimageslider.IndicatorView.draw.drawer.type.*;
 
 public class Drawer {
 
-    private BasicDrawer basicDrawer;
-    private ColorDrawer colorDrawer;
-    private ScaleDrawer scaleDrawer;
-    private WormDrawer wormDrawer;
-    private SlideDrawer slideDrawer;
-    private FillDrawer fillDrawer;
-    private ThinWormDrawer thinWormDrawer;
-    private DropDrawer dropDrawer;
-    private SwapDrawer swapDrawer;
-    private ScaleDownDrawer scaleDownDrawer;
+    private final BasicDrawer basicDrawer;
+    private final ColorDrawer colorDrawer;
+    private final ScaleDrawer scaleDrawer;
+    private final WormDrawer wormDrawer;
+    private final SlideDrawer slideDrawer;
+    private final FillDrawer fillDrawer;
+    private final ThinWormDrawer thinWormDrawer;
+    private final DropDrawer dropDrawer;
+    private final SwapDrawer swapDrawer;
+    private final ScaleDownDrawer scaleDownDrawer;
 
     private int position;
     private int coordinateX;
@@ -29,16 +29,18 @@ public class Drawer {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
 
-        basicDrawer = new BasicDrawer(paint, indicator);
-        colorDrawer = new ColorDrawer(paint, indicator);
-        scaleDrawer = new ScaleDrawer(paint, indicator);
-        wormDrawer = new WormDrawer(paint, indicator);
-        slideDrawer = new SlideDrawer(paint, indicator);
-        fillDrawer = new FillDrawer(paint, indicator);
-        thinWormDrawer = new ThinWormDrawer(paint, indicator);
-        dropDrawer = new DropDrawer(paint, indicator);
-        swapDrawer = new SwapDrawer(paint, indicator);
-        scaleDownDrawer = new ScaleDownDrawer(paint, indicator);
+        ShapeDrawer shapeDrawer = getShapeDrawer(indicator);
+
+        basicDrawer = new BasicDrawer(paint, indicator, shapeDrawer);
+        colorDrawer = new ColorDrawer(paint, indicator, shapeDrawer);
+        scaleDrawer = new ScaleDrawer(paint, indicator, shapeDrawer);
+        wormDrawer = new WormDrawer(paint, indicator, shapeDrawer);
+        slideDrawer = new SlideDrawer(paint, indicator, shapeDrawer);
+        fillDrawer = new FillDrawer(paint, indicator, shapeDrawer);
+        thinWormDrawer = new ThinWormDrawer(paint, indicator, shapeDrawer);
+        dropDrawer = new DropDrawer(paint, indicator, shapeDrawer);
+        swapDrawer = new SwapDrawer(paint, indicator, shapeDrawer);
+        scaleDownDrawer = new ScaleDownDrawer(paint, indicator, shapeDrawer);
     }
 
     public void setup(int position, int coordinateX, int coordinateY) {
@@ -105,5 +107,10 @@ public class Drawer {
         if (scaleDownDrawer != null) {
             scaleDownDrawer.draw(canvas, value, position, coordinateX, coordinateY);
         }
+    }
+
+    private ShapeDrawer getShapeDrawer(Indicator indicator) {
+        //return new CircleDrawer();
+        return new RectangleDrawer(indicator);
     }
 }

@@ -10,8 +10,10 @@ import com.smarteist.autoimageslider.IndicatorView.draw.data.Orientation;
 
 public class DropDrawer extends BaseDrawer {
 
-    public DropDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public DropDrawer(@NonNull Paint paint,
+                      @NonNull Indicator indicator,
+                      @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
     }
 
     public void draw(
@@ -34,9 +36,9 @@ public class DropDrawer extends BaseDrawer {
 
         paint.setColor(selectedColor);
         if (indicator.getOrientation() == Orientation.HORIZONTAL) {
-            canvas.drawCircle(v.getWidth(), v.getHeight(), v.getRadius(), paint);
+            shapeDrawer.draw(v.getWidth(), v.getHeight(), v.getRadius(), canvas, paint);
         } else {
-            canvas.drawCircle(v.getHeight(), v.getWidth(), v.getRadius(), paint);
+            shapeDrawer.draw(v.getHeight(), v.getWidth(), v.getRadius(), canvas, paint);
         }
     }
 }

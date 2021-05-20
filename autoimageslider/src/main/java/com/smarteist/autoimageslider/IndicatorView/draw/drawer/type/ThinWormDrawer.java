@@ -10,8 +10,10 @@ import com.smarteist.autoimageslider.IndicatorView.draw.data.Orientation;
 
 public class ThinWormDrawer extends WormDrawer {
 
-    public ThinWormDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public ThinWormDrawer(@NonNull Paint paint,
+                          @NonNull Indicator indicator,
+                          @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
     }
 
     public void draw(
@@ -47,7 +49,7 @@ public class ThinWormDrawer extends WormDrawer {
         }
 
         paint.setColor(unselectedColor);
-        canvas.drawCircle(coordinateX, coordinateY, radius, paint);
+        shapeDrawer.draw(coordinateX, coordinateY, radius, canvas, paint);
 
         paint.setColor(selectedColor);
         canvas.drawRoundRect(rect, radius, radius, paint);

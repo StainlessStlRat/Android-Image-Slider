@@ -14,7 +14,13 @@
         <attr name="piv_count" format="integer" />
         <attr name="piv_dynamicCount" format="boolean" />
 
+        <!--   Used for circle based drawing     -->
         <attr name="piv_radius" format="dimension" />
+        <!--   Used for rectangle based drawing     -->
+        <attr name="piv_rect_w" format="dimension" />
+        <attr name="piv_rect_h" format="dimension" />
+
+
         <attr name="piv_padding" format="dimension" />
         <attr name="piv_strokeWidth" format="dimension" />
         <attr name="piv_scaleFactor" format="float" />

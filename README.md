@@ -230,7 +230,7 @@ After the instantiating of the sliderView (inside the activity or fragment with 
 You can call this method if you want to start flipping automatically and you can also set up the slider animation :
 
 ```java
-    sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
+    sliderView.setIndicatorAnimation(IndicatorAnimationType.NONE);
     sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
     sliderView.startAutoCycle();
 ```

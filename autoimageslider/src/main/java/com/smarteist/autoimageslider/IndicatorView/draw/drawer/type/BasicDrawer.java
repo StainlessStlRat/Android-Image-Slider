@@ -8,10 +8,12 @@ import com.smarteist.autoimageslider.IndicatorView.draw.data.Indicator;
 
 public class BasicDrawer extends BaseDrawer {
 
-    private Paint strokePaint;
+    private final Paint strokePaint;
 
-    public BasicDrawer(@NonNull Paint paint, @NonNull Indicator indicator) {
-        super(paint, indicator);
+    public BasicDrawer(@NonNull Paint paint,
+                       @NonNull Indicator indicator,
+                       @NonNull ShapeDrawer shapeDrawer) {
+        super(paint, indicator, shapeDrawer);
 
         strokePaint = new Paint();
         strokePaint.setStyle(Paint.Style.STROKE);
@@ -56,6 +58,6 @@ public class BasicDrawer extends BaseDrawer {
         }
 
         paint.setColor(color);
-        canvas.drawCircle(coordinateX, coordinateY, radius, paint);
+        shapeDrawer.draw(coordinateX, coordinateY, radius, canvas, paint);
     }
 }

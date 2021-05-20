@@ -11,11 +11,18 @@ public class Indicator {
     public static final int COUNT_NONE = -1;
 
     public static final int DEFAULT_RADIUS_DP = 6;
+    public static final int DEFAULT_RECT_W_DP = 12;
+    public static final int DEFAULT_RECT_H_DP = 4;
     public static final int DEFAULT_PADDING_DP = 8;
 
     private int height;
     private int width;
+
+    // For circle
     private int radius;
+    // For rect
+    private int rectW;
+    private int rectH;
 
     private int padding;
     private int paddingLeft;
@@ -68,6 +75,22 @@ public class Indicator {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    public int getRectW() {
+        return rectW;
+    }
+
+    public void setRectW(int rectW) {
+        this.rectW = rectW;
+    }
+
+    public int getRectH() {
+        return rectH;
+    }
+
+    public void setRectH(int rectH) {
+        this.rectH = rectH;
     }
 
     public int getPadding() {

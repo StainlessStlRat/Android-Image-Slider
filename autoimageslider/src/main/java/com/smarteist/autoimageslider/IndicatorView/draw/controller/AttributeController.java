@@ -101,6 +101,16 @@ public class AttributeController {
             radius = 0;
         }
 
+        int rectW = (int) typedArray.getDimension(R.styleable.PageIndicatorView_piv_rect_w, DensityUtils.dpToPx(Indicator.DEFAULT_RECT_W_DP));
+        if (rectW < 0) {
+            rectW = 0;
+        }
+
+        int rectH = (int) typedArray.getDimension(R.styleable.PageIndicatorView_piv_rect_h, DensityUtils.dpToPx(Indicator.DEFAULT_RECT_H_DP));
+        if (rectH < 0) {
+            rectH = 0;
+        }
+
         int padding = (int) typedArray.getDimension(R.styleable.PageIndicatorView_piv_padding, DensityUtils.dpToPx(Indicator.DEFAULT_PADDING_DP));
         if (padding < 0) {
             padding = 0;
@@ -124,6 +134,8 @@ public class AttributeController {
         }
 
         indicator.setRadius(radius);
+        indicator.setRectW(rectW);
+        indicator.setRectH(rectH);
         indicator.setOrientation(orientation);
         indicator.setPadding(padding);
         indicator.setScaleFactor(scaleFactor);
