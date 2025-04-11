@@ -97,7 +97,7 @@ public class PageIndicatorView extends View implements SliderPager.OnPageChangeL
             super.onRestoreInstanceState(positionSavedState.getSuperState());
 
         } else {
-            super.onRestoreInstanceState(state);
+            // super.onRestoreInstanceState(state);
         }
     }
 
